@@ -36,7 +36,7 @@ class MediaFormatValidator {
         }
         ByteBuffer spsBuffer = AvcCsdUtils.getSpsBuffer(format);
         byte profileIdc = AvcSpsUtils.getProfileIdc(spsBuffer);
-        if (profileIdc != PROFILE_IDC_BASELINE) {
+        if (profileIdc != PROFILE_IDC_BASELINE && profileIdc != 100) {
             throw new InvalidOutputFormatException("Non-baseline AVC video profile is not supported by Android OS, actual profile_idc: " + profileIdc);
         }
     }
